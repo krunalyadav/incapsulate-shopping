@@ -5,6 +5,11 @@ var express = require('express'),
 
 app.use(cors());
 
+app.get('/items', (req, res) => {
+  var shoppingItems = require('./data/items.json');
+  res.json(shoppingItems);
+});
+
 // handle not found route
 app.use(function(req, res) {
   res.status(404).send({

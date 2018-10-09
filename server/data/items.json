@@ -1,0 +1,54 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "name": "Pen drive",
+      "price": "£29"
+    },
+    {
+      "id": 2,
+      "name": "Hard drive",
+      "price": "£30"
+    },
+    {
+      "id": 3,
+      "name": "Monitor",
+      "price": "£34"
+    },
+    {
+      "id": 4,
+      "name": "Laptop",
+      "price": "£32"
+    },
+    {
+      "id:": 5,
+      "name": "Headphone",
+      "price": "£34"
+    },
+    {
+      "id": 6,
+      "name": "Mouse",
+      "price": "£32"
+    },
+    {
+      "id": 7,
+      "name": "Mouse Pad",
+      "price": "£31"
+    },
+    {
+      "id": 8,
+      "name": "Keyboard",
+      "price": "£36"
+    },
+    {
+      "id": 9,
+      "name": "Laptop Stand",
+      "price": "£31"
+    },
+    {
+      "id": 10,
+      "name": "Notebook",
+      "price": "£21"
+    }
+  ]
+}
