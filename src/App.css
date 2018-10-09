@@ -6,12 +6,7 @@
   font-size: 3rem;
 }
 
-.cart-link {
-  color: black;
-}
-
-
-.cart-link:hover {
+a:link, a:hover, a:visited {
   text-decoration: none;
   color: black;
 }

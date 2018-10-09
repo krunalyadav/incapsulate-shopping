@@ -10,10 +10,11 @@ export default class App extends Component {
     this.state = {
       cartItems: []
     };
+    this.addToCart = this.addToCart.bind(this);
   }
 
   addToCart(item) {
-    console.log(item);
+    this.setState({ cartItems: [...this.state.cartItems, item] });
   }
 
   render() {
@@ -22,13 +23,15 @@ export default class App extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-6">
-              <Link to="/" className="cart-link">
+              <Link to="/">
                 <h3>Incapsulate Shopping</h3>
               </Link>
             </div>
             <div className="col-md-6">
-              <Link to="/cart" className="cart-link">
-                <h3 className="pull-right">Cart Items: {0}</h3>
+              <Link to="/cart">
+                <h3 className="pull-right">
+                  Cart Items: {this.state.cartItems.length}
+                </h3>
               </Link>
             </div>
           </div>

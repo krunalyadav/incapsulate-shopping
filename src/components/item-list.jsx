@@ -8,6 +8,7 @@ export default class ItemList extends Component {
     this.state = {
       items: []
     };
+    this.addToCart = this.addToCart.bind(this);
   }
 
   componentDidMount() {
@@ -21,7 +22,13 @@ export default class ItemList extends Component {
       });
   }
 
+  addToCart(item) {
+    let inStockItems = this.state.items.filter(x => x.id !== item.id);
+    this.setState({ items: inStockItems });
+    this.props.addToCart(item);
+  }
+
   render() {
-    return <Items inStockItems={this.state.items} {...this.props} />;
+    return <Items inStockItems={this.state.items} addToCart={this.addToCart} />;
   }
 }
