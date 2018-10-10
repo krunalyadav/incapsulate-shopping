@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { Component } from 'react';
+import Items from './items';
 
-const About = () => (
-  <div>
-    <h2>About</h2>
-  </div>
-);
-
-export default About;
+export default class CartDetails extends Component {
+  render() {
+    return (
+      <Items
+        inStockItems={this.props.items}
+        removeFromCart={this.props.removeFromCart}
+      />
+    );
+  }
+}

@@ -12,10 +12,16 @@ export default class ItemList extends Component {
   }
 
   componentDidMount() {
+    const cartItems = this.props.cartItems.map(item => item.id);
     axios
       .get('http://localhost:3001/items')
       .then(response => {
-        this.setState({ items: response.data.items, cartItems: [] });
+        let inStockItems = response.data.items.filter(item => {
+          return cartItems.indexOf(item.id) === -1;
+        });
+        this.setState({
+          items: inStockItems
+        });
       })
       .catch(err => {
         console.error(err);
@@ -29,6 +35,12 @@ export default class ItemList extends Component {
   }
 
   render() {
-    return <Items inStockItems={this.state.items} addToCart={this.addToCart} />;
+    return (
+      <Items
+        inStockItems={this.state.items}
+        isAddToCart
+        addToCart={this.addToCart}
+      />
+    );
   }
 }

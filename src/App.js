@@ -11,10 +11,17 @@ export default class App extends Component {
       cartItems: []
     };
     this.addToCart = this.addToCart.bind(this);
+    this.removeFromCart = this.removeFromCart.bind(this);
   }
 
   addToCart(item) {
     this.setState({ cartItems: [...this.state.cartItems, item] });
+  }
+
+  removeFromCart(item) {
+    this.setState({
+      cartItems: [...this.state.cartItems.filter(x => x.id !== item.id)]
+    });
   }
 
   render() {
@@ -40,9 +47,22 @@ export default class App extends Component {
             <Route
               exact
               path="/"
-              render={() => <ItemList addToCart={this.addToCart} />}
+              render={() => (
+                <ItemList
+                  cartItems={this.state.cartItems}
+                  addToCart={this.addToCart}
+                />
+              )}
             />
-            <Route path="/cart" component={CartDetails} />
+            <Route
+              path="/cart"
+              render={() => (
+                <CartDetails
+                  items={this.state.cartItems}
+                  removeFromCart={this.removeFromCart}
+                />
+              )}
+            />
             <Route component={ItemList} />
           </Switch>
         </div>
