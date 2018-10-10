@@ -14,7 +14,7 @@ export default class ItemList extends Component {
   componentDidMount() {
     const cartItems = this.props.cartItems.map(item => item.id);
     axios
-      .get('http://localhost:3001/items')
+      .get('http://localhost:3001/api/items')
       .then(response => {
         let inStockItems = response.data.items.filter(item => {
           return cartItems.indexOf(item.id) === -1;

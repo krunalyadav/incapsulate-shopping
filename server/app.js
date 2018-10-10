@@ -1,11 +1,11 @@
 var express = require('express'),
   app = express(),
-  port = 3001,
+  port = process.env.PORT || 3001,
   cors = require('cors');
 
 app.use(cors());
 
-app.get('/items', (req, res) => {
+app.get('/api/items', (req, res) => {
   var shoppingItems = require('./data/items.json');
   res.json(shoppingItems);
 });
@@ -18,5 +18,5 @@ app.use(function(req, res) {
 });
 
 app.listen(port, () => {
-  console.log('Server is listening on port 3001');
+  console.log(`Server is listening on port ${port}`);
 });
